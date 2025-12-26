@@ -3,6 +3,14 @@
 !.env.template
 notes.md
 
+#Others
+.idea/
+*.iml
+# --- Recomendaciones Flutter/Dart ---
+# Mantener estos archivos en el repositorio:
+!.metadata
+!analysis_options.yaml
+
 # Miscellaneous
 *.class
 *.lock
@@ -11,8 +19,6 @@ notes.md
 *.swp
 .buildlog/
 .history
-
-
 
 # Flutter repo-specific
 /bin/cache/
