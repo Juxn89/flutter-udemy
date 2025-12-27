@@ -8,7 +8,7 @@ class CounterScreen extends StatefulWidget {
 }
 
 class _CounterScreenState extends State<CounterScreen> {
-	int currentCounter = 1;
+	int currentCounter = 0;
 
 	@override
 	Widget build(BuildContext context) {
@@ -20,15 +20,38 @@ class _CounterScreenState extends State<CounterScreen> {
 				backgroundColor: Colors.indigo,
 				elevation: 10,				
 			),
-			floatingActionButton: FloatingActionButton(
-				onPressed: (){
-					currentCounter++;
-					setState(() {
-					  
-					});
-				},
-				backgroundColor: Colors.indigo,
-				child: Icon(Icons.plus_one, color: Colors.white,),
+			floatingActionButton: Row(
+				mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+			  children: [
+			    FloatingActionButton(
+			    	onPressed: () {
+							if(currentCounter > 0) {
+			    			currentCounter--;
+							}
+			    		setState(() { });
+			    	},
+			    	backgroundColor: Colors.indigo,
+			    	child: Icon(Icons.exposure_minus_1, color: Colors.white,),
+			    ),
+					// SizedBox(width: 40,),
+					FloatingActionButton(
+			    	onPressed: (){
+			    		currentCounter = 0;
+			    		setState(() { });
+			    	},
+			    	backgroundColor: Colors.indigo,
+			    	child: Icon(Icons.refresh_outlined, color: Colors.white,),
+			    ),					
+					// SizedBox(width: 40,),
+					FloatingActionButton(
+			    	onPressed: (){
+			    		currentCounter++;
+			    		setState(() { });
+			    	},
+			    	backgroundColor: Colors.indigo,
+			    	child: Icon(Icons.plus_one, color: Colors.white,),
+			    )
+			  ],
 			),
 			floatingActionButtonLocation: FloatingActionButtonLocation.miniEndDocked,
 			body: Center(
