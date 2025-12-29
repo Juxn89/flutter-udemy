@@ -15,22 +15,36 @@
 
 ---
 
+
 ## 📂 Repository Structure
 
 All content is managed through Git branches. Each branch covers a specific topic or module for Flutter development.
 
-### Current Branch: <code>01-dart-first-steps</code>
+### Main Branches:
 
-> <strong>Essentials of Dart for Flutter:</strong>
-> <ul>
->   <li><b>Classes & Objects</b> – Learn how to structure your code with OOP principles.</li>
->   <li><b>Inheritance</b> – Understand code reuse and extension.</li>
->   <li><b>Data Types</b> – Explore Dart's type system for robust apps.</li>
->   <li><b>Futures & Async</b> – Handle asynchronous operations for responsive UIs.</li>
->   <li><b>Functions</b> – Write reusable and clean logic.</li>
->   <li><b>Collections</b> – Work with lists, maps, and sets.</li>
->   <li><b>Null Safety</b> – Prevent runtime errors and improve code safety.</li>
-> </ul>
+- <code>01-dart-first-steps</code>
+  - <strong>Essentials of Dart for Flutter:</strong>
+    <ul>
+      <li><b>Classes & Objects</b> – Learn how to structure your code with OOP principles.</li>
+      <li><b>Inheritance</b> – Understand code reuse and extension.</li>
+      <li><b>Data Types</b> – Explore Dart's type system for robust apps.</li>
+      <li><b>Futures & Async</b> – Handle asynchronous operations for responsive UIs.</li>
+      <li><b>Functions</b> – Write reusable and clean logic.</li>
+      <li><b>Collections</b> – Work with lists, maps, and sets.</li>
+      <li><b>Null Safety</b> – Prevent runtime errors and improve code safety.</li>
+    </ul>
+
+- <code>02-counter</code>
+  - <strong>Flutter: First steps with a counter app:</strong>
+    <ul>
+      <li><b>Stateless</b> – Basic stateless widgets.</li>
+      <li><b>Stateful</b> – Using stateful widgets for dynamic UI.</li>
+      <li><b>Scaffolds</b> – App structure and layout with Scaffold.</li>
+      <li><b>Styles</b> – Applying styles to widgets.</li>
+      <li><b>Buttons</b> – Handling button interactions.</li>
+      <li><b>Basic state handler</b> – Managing state in Flutter.</li>
+      <li><b>BuildContext</b> – Understanding and using BuildContext.</li>
+    </ul>
 
 ---
 
