@@ -9,50 +9,31 @@ class CounterScreen extends StatefulWidget {
 
 class _CounterScreenState extends State<CounterScreen> {
 	int currentCounter = 0;
+	void increase () {
+		currentCounter++;
+		setState(() { });
+	}
+
+	void decrease() {
+		currentCounter--;
+		setState(() { });
+	}
+
+	void reset() {
+		currentCounter = 0;
+		setState(() { });
+	}
 
 	@override
 	Widget build(BuildContext context) {
 		const fontSize30 = TextStyle(fontSize: 30);
-
 		return Scaffold(
 			appBar: AppBar(
 				title: Text('Counter Screen', style: TextStyle(color: Colors.white)),
 				backgroundColor: Colors.indigo,
 				elevation: 10,				
 			),
-			floatingActionButton: Row(
-				mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-			  children: [
-			    FloatingActionButton(
-			    	onPressed: () {
-							if(currentCounter > 0) {
-			    			currentCounter--;
-							}
-			    		setState(() { });
-			    	},
-			    	backgroundColor: Colors.indigo,
-			    	child: Icon(Icons.exposure_minus_1, color: Colors.white,),
-			    ),
-					// SizedBox(width: 40,),
-					FloatingActionButton(
-			    	onPressed: (){
-			    		currentCounter = 0;
-			    		setState(() { });
-			    	},
-			    	backgroundColor: Colors.indigo,
-			    	child: Icon(Icons.refresh_outlined, color: Colors.white,),
-			    ),					
-					// SizedBox(width: 40,),
-					FloatingActionButton(
-			    	onPressed: (){
-			    		currentCounter++;
-			    		setState(() { });
-			    	},
-			    	backgroundColor: Colors.indigo,
-			    	child: Icon(Icons.plus_one, color: Colors.white,),
-			    )
-			  ],
-			),
+			floatingActionButton: CustomFlottingActions(increaseFn: increase, decreaseFn: decrease, resetFn: reset,),
 			floatingActionButtonLocation: FloatingActionButtonLocation.miniEndDocked,
 			body: Center(
 				child: Column(
@@ -65,6 +46,45 @@ class _CounterScreenState extends State<CounterScreen> {
 			),
 		);
 	}
+}
+
+class CustomFlottingActions extends StatelessWidget {
+	final Function increaseFn;
+	final Function decreaseFn;
+	final Function resetFn;
+	
+  const CustomFlottingActions({
+    super.key,
+		required this.increaseFn,
+		required this.decreaseFn,
+		required this.resetFn
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+    	mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        FloatingActionButton(
+        	onPressed: () => decreaseFn(),
+        	backgroundColor: Colors.indigo,
+        	child: Icon(Icons.exposure_minus_1, color: Colors.white,),
+        ),
+    		// SizedBox(width: 40,),
+    		FloatingActionButton(
+        	onPressed: () => resetFn(),
+        	backgroundColor: Colors.indigo,
+        	child: Icon(Icons.refresh_outlined, color: Colors.white,),
+        ),					
+    		// SizedBox(width: 40,),
+    		FloatingActionButton(
+        	onPressed: () => increaseFn(),
+        	backgroundColor: Colors.indigo,
+        	child: Icon(Icons.plus_one, color: Colors.white,),
+        )
+      ],
+    );
+  }
 }
 
 void onPress() {
