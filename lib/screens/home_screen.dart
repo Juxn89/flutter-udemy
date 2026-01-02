@@ -1,10 +1,11 @@
-import 'package:components_app/router/app_routes.dart';
+import 'package:components_app/themes/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:components_app/screens/screens.dart';
+import 'package:components_app/router/app_routes.dart';
 
 class HomeScreen extends StatelessWidget {
-	final menuOptions = AppRoutes.menuOptions;
-	HomeScreen({Key? key}) : super(key: key);
+	final menuOptions = AppRoutes.menuOptions1;
+
+	HomeScreen({super.key});
 	
 	@override
 	Widget build(BuildContext context) {
@@ -15,8 +16,8 @@ class HomeScreen extends StatelessWidget {
 			),
 			body: ListView.separated(
 				itemBuilder: (context, index) => ListTile(
-					title: Text( menuOptions[index].name ),
-					leading: Icon( menuOptions[index].icon ),
+					title: Text( menuOptions[index].name, style: TextStyle(color: Colors.white),),
+					leading: Icon( menuOptions[index].icon, color: AppTheme.primary, ),
 					onTap: () {
 						// final route = MaterialPageRoute(builder: (context) => ListView1Screen(),);
 						// // Navigator.push(context, route); // Allow you go back to the previous page
