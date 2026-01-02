@@ -16,7 +16,11 @@ class CardScreen extends StatelessWidget {
 				children: [
 					CustomCardType1(),
 					SizedBox(height: 10),
-					CustomCardType2()
+					CustomCardType2(imageUrl: 'https://wallpapers.com/images/hd/mortal-kombat-sub-zero-2880-x-1800-wallpaper-pgui67gyf1z6p34z.jpg', imageTitle: 'Sub Zero',),
+					SizedBox(height: 10),
+					CustomCardType2(imageUrl: 'https://4kwallpapers.com/images/wallpapers/sub-zero-scorpion-2880x1800-17601.jpg', imageTitle: 'Sub Zero VS Scorpion',),
+					SizedBox(height: 10),
+					CustomCardType2(imageUrl: 'https://4kwallpapers.com/images/wallpapers/scorpion-mortal-kombat-11-black-background-playstation-4-3840x2160-1560.jpg', imageTitle: 'Scorpion',)
 				],
 			)
 		);
