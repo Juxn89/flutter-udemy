@@ -24,6 +24,11 @@ class AppTheme {
 			scaffoldBackgroundColor: Colors.black,
 			textButtonTheme: TextButtonThemeData(
 				style: TextButton.styleFrom(foregroundColor: primary)
+			),
+			floatingActionButtonTheme: FloatingActionButtonThemeData(
+				backgroundColor: primary,
+				foregroundColor: Colors.white,
+				elevation: 5
 			)
 		);
 }
