@@ -13,6 +13,7 @@ class AppRoutes {
 		MenuOptions(route: 'listview1', icon: Icons.list, name: 'Listview #1 Screen', screen: ListView1Screen()),
 		MenuOptions(route: 'listview2', icon: Icons.list_alt, name: 'Listview #2 Screen', screen: ListView2Screen()),
 		MenuOptions(route: 'avatar', icon: Icons.supervised_user_circle, name: 'Circle Avatar', screen: AvatarScreen()),
+		MenuOptions(route: 'animatedCurve', icon: Icons.play_circle, name: 'AnimatedContainer: Curve Class', screen: AnimatedScreen()),
 	];
 
 	static final menuOptions1 = <MenuOptions>[
@@ -21,10 +22,13 @@ class AppRoutes {
 		MenuOptions(route: 'listview1', icon: Icons.list, name: 'Listview #1 Screen', screen: ListView1Screen()),
 		MenuOptions(route: 'listview2', icon: Icons.list_alt, name: 'Listview #2 Screen', screen: ListView2Screen()),
 		MenuOptions(route: 'avatar', icon: Icons.supervised_user_circle, name: 'Circle Avatar', screen: AvatarScreen()),
+		MenuOptions(route: 'animatedCurve', icon: Icons.play_circle, name: 'AnimatedContainer: Curve Class', screen: AnimatedScreen()),
+
 	];
 
 	static Map<String, Widget Function(BuildContext)> getAppRoutes() {
 		Map<String, Widget Function(BuildContext)> appRoutes = {};
+		appRoutes.addAll({ 'home': (BuildContext context) => HomeScreen() });
 
 		for (var options in menuOptions) {
 		  appRoutes.addAll({ options.route : (BuildContext context) => options.screen });
@@ -36,10 +40,11 @@ class AppRoutes {
 	static Map<String, Widget Function(BuildContext)> routes = {
 		'alert': (BuildContext context) => AlertScreen(),
 		'card': (BuildContext context) => CardScreen(),
-		'home': (BuildContext context) => HomeScreen(),
+		// 'home': (BuildContext context) => HomeScreen(),
 		'listview1': (BuildContext context) => ListView1Screen(),
 		'listview2': (BuildContext context) => ListView2Screen(),
 		'avatar': (BuildContext context) => AvatarScreen(),
+		'animatedCurve': (BuildContext context) => AnimatedScreen(),
 	};
 
 	static Route<dynamic> onGenerateRoute (RouteSettings settings) {
