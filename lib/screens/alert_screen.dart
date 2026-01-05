@@ -1,10 +1,13 @@
+import 'dart:io';
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AlertScreen extends StatelessWidget {
 	 
 	const AlertScreen({Key? key}) : super(key: key);
 
-	void displayDialog(BuildContext context) {
+	void displayDialogAndroid(BuildContext context) {
 		showDialog(
 			barrierDismissible: true,
 			context: context, 
@@ -24,6 +27,10 @@ class AlertScreen extends StatelessWidget {
 					actions: [
 						TextButton(
 							onPressed: () => Navigator.pop(context), 
+							child: Text('Cancel', style: TextStyle(color: Colors.red),)
+						),
+						TextButton(
+							onPressed: () => Navigator.pop(context), 
 							child: Text('Cancel')
 						)
 					],
@@ -32,6 +39,36 @@ class AlertScreen extends StatelessWidget {
 		);
 	}
 	
+	void displayDialogIOS(BuildContext context) {
+		showCupertinoDialog(
+			context: context,
+			barrierDismissible: true,
+			builder: (context) {
+				return CupertinoAlertDialog(
+					title: Text('Ttile - iOS'),
+					content: Column(
+						mainAxisSize: MainAxisSize.min,
+						children: [
+							Text('This is the content of the alert using Cupertino iOS'),
+							SizedBox(height: 10),
+							FlutterLogo(size: 80,)
+						],
+					),
+					actions: [
+						TextButton(
+							onPressed: () => Navigator.pop(context), 
+							child: Text('Cancel', style: TextStyle(color: Colors.red),)
+						),
+						TextButton(
+							onPressed: () => Navigator.pop(context), 
+							child: Text('Ok')
+						)
+					],
+				);
+			}
+		);
+	}
+
 	@override
 	Widget build(BuildContext context) {
 		return Scaffold(
@@ -49,7 +86,9 @@ class AlertScreen extends StatelessWidget {
 						shape: StadiumBorder(),
 						elevation: 0
 					),
-					onPressed: () => displayDialog(context), 
+					onPressed: () => Platform.isAndroid 
+						? displayDialogAndroid(context)
+						: displayDialogIOS(context), 
 					child: Padding(
 						padding: EdgeInsets.symmetric(horizontal: 20, vertical: 15),
 						child: Text('Show alert', style: TextStyle(fontSize: 16),),
