@@ -14,6 +14,7 @@ class AppRoutes {
 		MenuOptions(route: 'listview2', icon: Icons.list_alt, name: 'Listview #2 Screen', screen: ListView2Screen()),
 		MenuOptions(route: 'avatar', icon: Icons.supervised_user_circle, name: 'Circle Avatar', screen: AvatarScreen()),
 		MenuOptions(route: 'animatedCurve', icon: Icons.play_circle, name: 'AnimatedContainer: Curve Class', screen: AnimatedScreen()),
+		MenuOptions(route: 'textinput', icon: Icons.input, name: 'Text Input Screen', screen: InputScreen()),
 	];
 
 	static final menuOptions1 = <MenuOptions>[
@@ -23,6 +24,7 @@ class AppRoutes {
 		MenuOptions(route: 'listview2', icon: Icons.list_alt, name: 'Listview #2 Screen', screen: ListView2Screen()),
 		MenuOptions(route: 'avatar', icon: Icons.supervised_user_circle, name: 'Circle Avatar', screen: AvatarScreen()),
 		MenuOptions(route: 'animatedCurve', icon: Icons.play_circle, name: 'AnimatedContainer: Curve Class', screen: AnimatedScreen()),
+		MenuOptions(route: 'textinput', icon: Icons.input, name: 'Text Input Screen', screen: InputScreen()),
 
 	];
 
@@ -45,6 +47,7 @@ class AppRoutes {
 		'listview2': (BuildContext context) => ListView2Screen(),
 		'avatar': (BuildContext context) => AvatarScreen(),
 		'animatedCurve': (BuildContext context) => AnimatedScreen(),
+		'textinput': (BuildContext context) => InputScreen(),
 	};
 
 	static Route<dynamic> onGenerateRoute (RouteSettings settings) {
