@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/widgets.dart';
+
 class InputScreen extends StatelessWidget {
 	 
 	const InputScreen({Key? key}) : super(key: key);
@@ -16,45 +18,17 @@ class InputScreen extends StatelessWidget {
 						padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
 						child: Column(
 							children: [
-								TextFormField(
-									autofocus: true,
-									initialValue: 'Juan',
-									textCapitalization: TextCapitalization.words,
-									decoration: InputDecoration(
-										hintText: 'User firstname',
-										label: Text('Firstname'),
-										helperText: 'Only words allowed',
-										counterText: '3 Characters left',
-										suffixIcon: Icon(Icons.group_outlined),
-										prefix: Icon(Icons.verified_user_outlined),
-										icon: Icon(Icons.assignment_ind_outlined),
-										focusedBorder: OutlineInputBorder(
-											borderSide: BorderSide(
-												color: Colors.green
-											)
-										),
-										border: OutlineInputBorder(
-											borderRadius: BorderRadius.only(
-												bottomLeft: Radius.circular(10),
-												bottomRight: Radius.circular(10)
-											)
-										)
-									),
-									onChanged: (value) {
-										print('Value: $value');
-									},
-									// autovalidateMode: AutovalidateMode.always,
-									autovalidateMode: AutovalidateMode.onUserInteraction,
-									validator: (value) {
-										if(value == null)
-											return 'This field is required';
-										
-										if(value.length < 3)
-										return 'At least 3 characters';
+								CustomInputField(label: 'Custon name', helperText: 'Custom helper text', hintText: 'Custom hintText',),
+								SizedBox(height: 30,),
 
-										return null;
-									},
-								)
+								CustomInputField(label: 'Lastname', helperText: 'User lastname', hintText: 'Lastname',),
+								SizedBox(height: 30,),
+
+								CustomInputField(label: 'Email', helperText: 'User email', hintText: 'Email', textInputType: TextInputType.emailAddress, ),
+								SizedBox(height: 30,),
+
+								CustomInputField(label: 'Password', helperText: 'Password', hintText: 'Password', obscureText: true, ),
+								SizedBox(height: 30,),
 							],
 						),
 					),
@@ -63,3 +37,4 @@ class InputScreen extends StatelessWidget {
 		);
 	}
 }
+
