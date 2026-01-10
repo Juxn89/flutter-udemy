@@ -8,17 +8,27 @@ class CustomInputField extends StatelessWidget {
 	final IconData? suffixIcon;
 	final TextInputType? textInputType;
 	final bool obscureText;
+	
+	final String formProperty;
+	final Map<String, dynamic> formValue;
 
   const CustomInputField({
-    super.key, this.hintText, this.label, this.helperText, this.icon, this.suffixIcon, this.textInputType,
-		this.obscureText = false
+    super.key, 
+		this.hintText, 
+		this.label, 
+		this.helperText, 
+		this.icon, 
+		this.suffixIcon, 
+		this.textInputType,
+		this.obscureText = false, 
+		required this.formProperty, 
+		required this.formValue
   });
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
     	autofocus: true,
-    	initialValue: 'Juan',
 			keyboardType: textInputType,
 			obscureText: obscureText,
     	textCapitalization: TextCapitalization.words,
@@ -42,9 +52,7 @@ class CustomInputField extends StatelessWidget {
     		// 	)
     		// )
     	),
-    	onChanged: (value) {
-    		print('Value: $value');
-    	},
+    	onChanged: (value) => formValue[formProperty] = value,
     	// autovalidateMode: AutovalidateMode.always,
     	autovalidateMode: AutovalidateMode.onUserInteraction,
     	validator: (value) {
