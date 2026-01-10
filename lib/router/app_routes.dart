@@ -15,6 +15,7 @@ class AppRoutes {
 		MenuOptions(route: 'avatar', icon: Icons.supervised_user_circle, name: 'Circle Avatar', screen: AvatarScreen()),
 		MenuOptions(route: 'animatedCurve', icon: Icons.play_circle, name: 'AnimatedContainer: Curve Class', screen: AnimatedScreen()),
 		MenuOptions(route: 'textinput', icon: Icons.input, name: 'Text Input Screen', screen: InputScreen()),
+		MenuOptions(route: 'slider', icon: Icons.motion_photos_on_rounded, name: 'Slider & Checks Screen', screen: SliderScreen()),
 	];
 
 	static final menuOptions1 = <MenuOptions>[
@@ -25,6 +26,7 @@ class AppRoutes {
 		MenuOptions(route: 'avatar', icon: Icons.supervised_user_circle, name: 'Circle Avatar', screen: AvatarScreen()),
 		MenuOptions(route: 'animatedCurve', icon: Icons.play_circle, name: 'AnimatedContainer: Curve Class', screen: AnimatedScreen()),
 		MenuOptions(route: 'textinput', icon: Icons.input, name: 'Text Input Screen', screen: InputScreen()),
+		MenuOptions(route: 'slider', icon: Icons.input, name: 'Slider Screen', screen: SliderScreen()),
 
 	];
 
@@ -48,6 +50,7 @@ class AppRoutes {
 		'avatar': (BuildContext context) => AvatarScreen(),
 		'animatedCurve': (BuildContext context) => AnimatedScreen(),
 		'textinput': (BuildContext context) => InputScreen(),
+		'slider': (BuildContext context) => SliderScreen(),
 	};
 
 	static Route<dynamic> onGenerateRoute (RouteSettings settings) {
