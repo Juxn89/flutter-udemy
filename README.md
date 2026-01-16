@@ -46,6 +46,17 @@ All content is managed through Git branches. Each branch covers a specific topic
       <li><b>BuildContext</b> – Understanding and using BuildContext.</li>
     </ul>
 
+- <code>03-components</code>
+  - <strong>Demonstration of different widgets in one App:</strong>
+    <ul>
+      <li><b>Listviews & ListTiles</b> – Displaying lists of items.</li>
+      <li><b>Routes</b> – Navigation between screens.</li>
+      <li><b>JSON Handling</b> – Parsing JSON from files and futures.</li>
+      <li><b>FutureBuilder</b> – Building widgets from asynchronous data.</li>
+      <li><b>UI Widgets</b> – Icons, Images, Avatars, Cards, Sliders.</li>
+      <li><b>Advanced Lists</b> – InfiniteScroll and Pull to refresh.</li>
+    </ul>
+
 ---
 
 ## 🔗 Useful Links
