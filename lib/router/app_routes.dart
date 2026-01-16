@@ -15,7 +15,8 @@ class AppRoutes {
 		MenuOptions(route: 'avatar', icon: Icons.supervised_user_circle, name: 'Circle Avatar', screen: AvatarScreen()),
 		MenuOptions(route: 'animatedCurve', icon: Icons.play_circle, name: 'AnimatedContainer: Curve Class', screen: AnimatedScreen()),
 		MenuOptions(route: 'textinput', icon: Icons.input, name: 'Text Input Screen', screen: InputScreen()),
-		MenuOptions(route: 'slider', icon: Icons.motion_photos_on_rounded, name: 'Slider & Checks Screen', screen: SliderScreen()),
+		MenuOptions(route: 'slider', icon: Icons.slow_motion_video_rounded, name: 'Slider & Checks Screen', screen: SliderScreen()),
+		MenuOptions(route: 'listviewbuilder', icon: Icons.list_rounded, name: 'InfinititeScroll & Pull to Refresh', screen: ListViewBuilderScreen()),
 	];
 
 	static final menuOptions1 = <MenuOptions>[
@@ -27,7 +28,7 @@ class AppRoutes {
 		MenuOptions(route: 'animatedCurve', icon: Icons.play_circle, name: 'AnimatedContainer: Curve Class', screen: AnimatedScreen()),
 		MenuOptions(route: 'textinput', icon: Icons.input, name: 'Text Input Screen', screen: InputScreen()),
 		MenuOptions(route: 'slider', icon: Icons.input, name: 'Slider Screen', screen: SliderScreen()),
-
+		MenuOptions(route: 'listviewbuilder', icon: Icons.list_rounded, name: 'InfinititeScroll & Pull to Refresh', screen: ListViewBuilderScreen()),
 	];
 
 	static Map<String, Widget Function(BuildContext)> getAppRoutes() {
@@ -51,6 +52,7 @@ class AppRoutes {
 		'animatedCurve': (BuildContext context) => AnimatedScreen(),
 		'textinput': (BuildContext context) => InputScreen(),
 		'slider': (BuildContext context) => SliderScreen(),
+		'listviewbuilder': (BuildContext context) => ListViewBuilderScreen(),
 	};
 
 	static Route<dynamic> onGenerateRoute (RouteSettings settings) {
