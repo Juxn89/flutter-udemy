@@ -41,12 +41,12 @@ class _MoviePosted extends StatelessWidget {
 			child: Column(
 				children: [
 					GestureDetector(
-						onTap: () => Navigator.pushNamed(context, 'details', arguments: ''),
+						onTap: () => Navigator.pushNamed(context, 'details', arguments: 'Star wars'),
 						child: ClipRRect(
 							borderRadius: BorderRadius.circular(20),
 							child: FadeInImage(
 								placeholder: AssetImage('lib/assets/no-image.jpg'), 
-								image: NetworkImage('https://placehold.co/300x400.png'),
+								image: NetworkImage('https://picsum.photos/seed/product/400/300'),
 								width: 130,
 								height: 190,
 								fit: BoxFit.cover
