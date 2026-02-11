@@ -1,8 +1,14 @@
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:flutter/material.dart';
+import 'package:movies/provider/movies_providers.dart';
+import 'package:provider/provider.dart';
 
 import 'screens/screens.dart';
 
-void main() => runApp(const MyApp());
+void main() async {
+  await dotenv.load(fileName: ".env");
+  runApp(const AppState());
+}
 
 class MyApp extends StatelessWidget {
 	const MyApp({super.key});
@@ -29,6 +35,20 @@ class MyApp extends StatelessWidget {
 					),
 				)
 			),
+		);
+	}
+}
+
+class AppState extends StatelessWidget {
+	const AppState({super.key});
+
+	@override
+	Widget build(BuildContext context) {
+		return MultiProvider(
+			providers: [
+				ChangeNotifierProvider(create: (context) => MoviesProvider(), lazy: false, )
+			],
+			child: MyApp(),
 		);
 	}
 }

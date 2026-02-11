@@ -1,26 +1,39 @@
 import 'package:flutter/material.dart';
 
+import '../models/movie.dart';
+
 class MovieSlider extends StatelessWidget {
-  const MovieSlider({super.key});
+	final List<Movie> movies;
+	final String? title;
+
+  const MovieSlider({
+		super.key, 
+		required this.movies, 
+		this.title
+	});
 
   @override
   Widget build(BuildContext context) {
     return Container(
 			width: double.infinity,
-			height: 260,
+			height: 270,
 			child: Column(
 				crossAxisAlignment: CrossAxisAlignment.start,
 				children: [
-					Padding(
-						padding: EdgeInsets.symmetric(horizontal: 20),
-						child: Text('Populars', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)
-					),
+					if(title != null)
+						Padding(
+							padding: EdgeInsets.symmetric(horizontal: 20),
+							child: Text(title!, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)
+						),
 					SizedBox(height: 5),
 					Expanded(
 						child: ListView.builder(
 							scrollDirection: Axis.horizontal,
-							itemCount: 20,
-							itemBuilder: (BuildContext context, int index) => _MoviePosted()
+							itemCount: movies.length,
+							itemBuilder: (BuildContext context, int index) {
+								final movie = movies[index];
+								return _MoviePosted(movie: movie,);
+							}
 						),
 					)
 				],
@@ -30,13 +43,18 @@ class MovieSlider extends StatelessWidget {
 }
 
 class _MoviePosted extends StatelessWidget {
-  const _MoviePosted({super.key});
+	final Movie movie;
+
+  const _MoviePosted({
+		super.key,
+		required this.movie
+	});
 
   @override
   Widget build(BuildContext context) {
     return Container(
 			width: 130,
-			height: 190,
+			height: 200,
 			margin: EdgeInsets.symmetric(horizontal: 10),
 			child: Column(
 				children: [
@@ -46,16 +64,16 @@ class _MoviePosted extends StatelessWidget {
 							borderRadius: BorderRadius.circular(20),
 							child: FadeInImage(
 								placeholder: AssetImage('lib/assets/no-image.jpg'), 
-								image: NetworkImage('https://picsum.photos/seed/product/400/300'),
+								image: NetworkImage(movie.fullPosterImg),
 								width: 130,
 								height: 190,
 								fit: BoxFit.cover
 							),
 						),
 					),
-					SizedBox(height: 5,),
+					SizedBox(height: 4,),
 					Text(
-						'Star Wars: ',
+						movie.title,
 						maxLines: 2,
 						textAlign: TextAlign.center,
 						overflow: TextOverflow.ellipsis,
