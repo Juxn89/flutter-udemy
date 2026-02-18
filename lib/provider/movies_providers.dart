@@ -12,58 +12,47 @@ class MoviesProvider extends ChangeNotifier {
 	List<Movie> onDisplayMovies = [];
 	List<Movie> popularMovies = [];
 
+	int _popularPage = 0;
+
   MoviesProvider() : _apikey = GlobalConfig().tmdbToken {
     getNowPlayingMovies();
 		getPopularMovies();
   }
 
-  getNowPlayingMovies() async {
+	Future<String> _getJsonData(String endpoint, [int page = 1]) async {
     if (_apikey.isEmpty) {
       print('TMDB token is not set. Please check your .env file.');
-      return;
+			return '';
     }
 
-    var url = Uri.https(_baseUrl, '3/movie/now_playing', {
+    var url = Uri.https(_baseUrl, endpoint, {
       'language': _language,
-      'page': '1'
+      'page': '$page'
     });
 
     final response = await http.get(url, headers: { 'Authorization': 'Bearer $_apikey' });
 
-    if (response.statusCode == 200) {
-			final Map<String, dynamic> decodeData = jsonDecode(response.body);
-      final nowPlayingResponse = NowPlayingResponse.fromJson(decodeData);
+		return response.body;
+	}
 
-			onDisplayMovies = nowPlayingResponse.results;
-			notifyListeners();
-    } else {
-      print('Failed to load movies. Status code: ${response.statusCode}');
-      print('Response body: ${response.body}');
-    }
+  getNowPlayingMovies() async {
+    final response = await this._getJsonData('3/movie/now_playing');
+
+		final Map<String, dynamic> decodeData = jsonDecode(response);
+		final nowPlayingResponse = NowPlayingResponse.fromJson(decodeData);
+
+		onDisplayMovies = nowPlayingResponse.results;
+		notifyListeners();
   }
 
 	getPopularMovies() async {
-    if (_apikey.isEmpty) {
-      print('TMDB token is not set. Please check your .env file.');
-      return;
-    }
+		_popularPage++;
+    final response = await this._getJsonData('3/movie/popular', _popularPage);
 
-    var url = Uri.https(_baseUrl, '3/movie/popular', {
-      'language': _language,
-      'page': '1'
-    });
+		final Map<String, dynamic> decodeData = jsonDecode(response);
+		final popularResponse = PopularResponse.fromJson(decodeData);
 
-    final response = await http.get(url, headers: { 'Authorization': 'Bearer $_apikey' });
-		print(response);
-    if (response.statusCode == 200) {
-			final Map<String, dynamic> decodeData = jsonDecode(response.body);
-      final popularResponse = PopularResponse.fromJson(decodeData);
-
-			popularMovies = [...popularMovies, ...popularResponse.results];
-			notifyListeners();
-    } else {
-      print('Failed to load movies. Status code: ${response.statusCode}');
-      print('Response body: ${response.body}');
-    }
+		popularMovies = [...popularMovies, ...popularResponse.results];
+		notifyListeners();
 	}
 }

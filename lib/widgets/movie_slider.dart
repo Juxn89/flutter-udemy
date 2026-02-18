@@ -2,15 +2,44 @@ import 'package:flutter/material.dart';
 
 import '../models/movie.dart';
 
-class MovieSlider extends StatelessWidget {
+class MovieSlider extends StatefulWidget {
 	final List<Movie> movies;
 	final String? title;
+	final Function onNextPage;
 
   const MovieSlider({
 		super.key, 
-		required this.movies, 
+		required this.movies,
+		required this.onNextPage,
 		this.title
 	});
+
+  @override
+  State<MovieSlider> createState() => _MovieSliderState();
+}
+
+class _MovieSliderState extends State<MovieSlider> {
+	final ScrollController scrollController = ScrollController();
+
+	@override
+	void initState() {
+		super.initState();
+
+		scrollController.addListener((){
+			final currentPostion = scrollController.position.pixels;
+			final maxLimit = scrollController.position.maxScrollExtent;
+			final maxLimitDispatch = maxLimit - 500;
+
+			if(currentPostion >= maxLimitDispatch) {
+				widget.onNextPage();
+			}
+		});
+	}
+
+	@override
+  void dispose() {
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -20,18 +49,19 @@ class MovieSlider extends StatelessWidget {
 			child: Column(
 				crossAxisAlignment: CrossAxisAlignment.start,
 				children: [
-					if(title != null)
+					if(widget.title != null)
 						Padding(
 							padding: EdgeInsets.symmetric(horizontal: 20),
-							child: Text(title!, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)
+							child: Text(widget.title!, style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),)
 						),
 					SizedBox(height: 5),
 					Expanded(
 						child: ListView.builder(
+							controller: scrollController,
 							scrollDirection: Axis.horizontal,
-							itemCount: movies.length,
+							itemCount: widget.movies.length,
 							itemBuilder: (BuildContext context, int index) {
-								final movie = movies[index];
+								final movie = widget.movies[index];
 								return _MoviePosted(movie: movie,);
 							}
 						),
@@ -59,7 +89,7 @@ class _MoviePosted extends StatelessWidget {
 			child: Column(
 				children: [
 					GestureDetector(
-						onTap: () => Navigator.pushNamed(context, 'details', arguments: 'Star wars'),
+						onTap: () => Navigator.pushNamed(context, 'details', arguments: movie),
 						child: ClipRRect(
 							borderRadius: BorderRadius.circular(20),
 							child: FadeInImage(

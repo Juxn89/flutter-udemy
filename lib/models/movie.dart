@@ -45,12 +45,20 @@ class Movie {
 			return 'https://png.pngtree.com/png-vector/20221125/ourmid/pngtree-no-image-available-icon-flatvector-illustration-pic-design-profile-vector-png-image_40966566.jpg';
 		}
 
+		String get fullBackdropPath {
+			if(backdropPath != null) {
+				return 'https://image.tmdb.org/t/p/w500/$backdropPath';
+			}
+			
+			return 'https://png.pngtree.com/png-vector/20221125/ourmid/pngtree-no-image-available-icon-flatvector-illustration-pic-design-profile-vector-png-image_40966566.jpg';
+		}
+
     factory Movie.fromJson(Map<String, dynamic> json) => Movie(
         adult: json["adult"],
         backdropPath: json["backdrop_path"],
         genreIds: List<int>.from(json["genre_ids"].map((x) => x)),
         id: json["id"],
-        originalLanguage: originalLanguageValuesPopularMovie.map[json["original_language"]]!,
+        originalLanguage: originalLanguageValuesPopularMovie.map[json["original_language"]] ?? OriginalLanguagePopularMovie.EN,
         originalTitle: json["original_title"],
         overview: json["overview"],
         popularity: json["popularity"]?.toDouble(),
