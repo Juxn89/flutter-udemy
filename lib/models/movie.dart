@@ -42,7 +42,7 @@ class Movie {
 				return 'https://image.tmdb.org/t/p/w500/$posterPath';
 			}
 			
-			return 'https://png.pngtree.com/png-vector/20221125/ourmid/pngtree-no-image-available-icon-flatvector-illustration-pic-design-profile-vector-png-image_40966566.jpg';
+			return 'https://www.lacinefest.org/uploads/2/6/7/4/26743637/no-poster_orig.jpeg';
 		}
 
 		String get fullBackdropPath {
@@ -50,7 +50,7 @@ class Movie {
 				return 'https://image.tmdb.org/t/p/w500/$backdropPath';
 			}
 			
-			return 'https://png.pngtree.com/png-vector/20221125/ourmid/pngtree-no-image-available-icon-flatvector-illustration-pic-design-profile-vector-png-image_40966566.jpg';
+			return 'https://www.lacinefest.org/uploads/2/6/7/4/26743637/no-poster_orig.jpeg';
 		}
 
     factory Movie.fromJson(Map<String, dynamic> json) => Movie(
