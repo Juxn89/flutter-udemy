@@ -19,7 +19,7 @@ class DatailsScreen extends StatelessWidget {
 							_Overview(overview: movie.overview),
 							_Overview(overview: movie.overview),
 							_Overview(overview: movie.overview),
-							CastingCards()
+							CastingCards(movie.id)
 						])
 					)
 				],
