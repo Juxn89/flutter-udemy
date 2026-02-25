@@ -37,6 +37,8 @@ class Movie {
 
     String toRawJson() => json.encode(toJson());
 
+		String? heroId;
+
 		String get fullPosterImg {
 			if(posterPath != null) {
 				return 'https://image.tmdb.org/t/p/w500/$posterPath';
