@@ -1,72 +1,39 @@
-<!-- Modern, professional, minimal README for GitHub, using Markdown, HTML, and CSS as needed -->
-
-<h1 align="center">Flutter: Your Guide for iOS and Android 🚀</h1>
+<h1 align="center">Flutter Designs 🎨</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Dart-0175C2?style=for-the-badge&logo=dart&logoColor=white"/>
   <img src="https://img.shields.io/badge/Flutter-02569B?style=for-the-badge&logo=flutter&logoColor=white"/>
-  <img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white"/>
-  <img src="https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=apple&logoColor=white"/>
 </p>
 
 <div align="center" style="margin-bottom: 1.5em;">
-  <strong>Welcome! This repository is a directory for learning and mastering Flutter development for both iOS and Android platforms.</strong>
+  <strong>This repository showcases different UI designs implemented in Flutter.</strong>
 </div>
 
 ---
 
+## 📂 Designs
 
-## 📂 Repository Structure
+This branch contains a collection of screens demonstrating various design techniques in Flutter.
 
-All content is managed through Git branches. Each branch covers a specific topic or module for Flutter development.
+### Screens:
 
-### Main Branches:
+- **Basic Design**
+  - A simple layout demonstrating fundamental widgets as seen in [basic_design.dart](lib/screens/basic_design.dart).
+  
+- **Scroll Design**
+  - A screen featuring a vertical scrolling effect between pages, which can be found in [scroll_designe.dart](lib/screens/scroll_designe.dart).
 
-- <code>01-dart-first-steps</code>
-  - <strong>Essentials of Dart for Flutter:</strong>
-    <ul>
-      <li><b>Classes & Objects</b> – Learn how to structure your code with OOP principles.</li>
-      <li><b>Inheritance</b> – Understand code reuse and extension.</li>
-      <li><b>Data Types</b> – Explore Dart's type system for robust apps.</li>
-      <li><b>Futures & Async</b> – Handle asynchronous operations for responsive UIs.</li>
-      <li><b>Functions</b> – Write reusable and clean logic.</li>
-      <li><b>Collections</b> – Work with lists, maps, and sets.</li>
-      <li><b>Null Safety</b> – Prevent runtime errors and improve code safety.</li>
-    </ul>
-
-- <code>02-counter</code>
-  - <strong>Flutter: First steps with a counter app:</strong>
-    <ul>
-      <li><b>Stateless</b> – Basic stateless widgets.</li>
-      <li><b>Stateful</b> – Using stateful widgets for dynamic UI.</li>
-      <li><b>Scaffolds</b> – App structure and layout with Scaffold.</li>
-      <li><b>Styles</b> – Applying styles to widgets.</li>
-      <li><b>Buttons</b> – Handling button interactions.</li>
-      <li><b>Basic state handler</b> – Managing state in Flutter.</li>
-      <li><b>BuildContext</b> – Understanding and using BuildContext.</li>
-    </ul>
-
-- <code>03-components</code>
-  - <strong>Demonstration of different widgets in one App:</strong>
-    <ul>
-      <li><b>Listviews & ListTiles</b> – Displaying lists of items.</li>
-      <li><b>Routes</b> – Navigation between screens.</li>
-      <li><b>JSON Handling</b> – Parsing JSON from files and futures.</li>
-      <li><b>FutureBuilder</b> – Building widgets from asynchronous data.</li>
-      <li><b>UI Widgets</b> – Icons, Images, Avatars, Cards, Sliders.</li>
-      <li><b>Advanced Lists</b> – InfiniteScroll and Pull to refresh.</li>
-    </ul>
+- **Home Screen Design**
+  - A more complex and polished home screen layout, available in [home_screen.dart](lib/screens/home_screen.dart).
 
 ---
 
 ## 🔗 Useful Links
 
-<ul>
-  <li><a href="https://dart.dev/">Dart Official Documentation</a> – Reference for Dart language features and best practices.</li>
-  <li><a href="https://flutter.dev/">Flutter Official Documentation</a> – Guides, API docs, and resources for Flutter development.</li>
-  <li><a href="https://pub.dev/">Pub.dev</a> – Discover and manage Dart & Flutter packages.</li>
-  <li><a href="https://docs.flutter.dev/development/ui/widgets">Flutter Widgets Catalog</a> – Explore all available widgets for building UIs.</li>
-</ul>
+- [Build a Flutter layout](https://docs.flutter.dev/ui/layout/tutorial) - Official Flutter documentation on building layouts.
+- [Flutter Designs on Pinterest](https://es.pinterest.com/klerith/flutter-designs/) - A collection of design ideas for Flutter.
+- [Flutter Snippets for VS Code](https://gist.github.com/Klerith/49d170d6bfae08aef514ca3e74f5e1e0) - Useful code snippets for faster development.
+- [Widget de la Semana](https://www.youtube.com/watch?v=1OPDUhgrI24&list=PLCKuOXG0bPi2GD3Bq55ysZfQJz2k-LiEz) - A YouTube series by Fernando Herrera explaining Flutter widgets (in Spanish).
+- [Widget of the Week](https://www.youtube.com/playlist?list=PLjxrf2q8roU23XGwz3Km7sQZFTdB996iG) - The official Flutter YouTube series showcasing a new widget each week.
 
 ---
 
