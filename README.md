@@ -57,6 +57,27 @@ All content is managed through Git branches. Each branch covers a specific topic
       <li><b>Advanced Lists</b> – InfiniteScroll and Pull to refresh.</li>
     </ul>
 
+- <code>04-movies-app</code>
+  - <strong>Flutter: Movies App:</strong>
+    <ul>
+      <li><b>REST Services Consumption</b> – Consuming REST services.</li>
+      <li><b>JSON -> Maps -> Models Conversion</b> – Converting JSON to Maps and then to Models.</li>
+      <li><b>PageViews</b> – Using PageViews for swiping through pages.</li>
+      <li><b>ApiKeys</b> – Handling API Keys securely.</li>
+      <li><b>Providers</b> – State management with Providers.</li>
+      <li><b>Streams</b> – Working with asynchronous data streams.</li>
+      <li><b>Infinite Horizontal Scroll</b> – Implementing infinite horizontal scrolling.</li>
+      <li><b>SearchDelegate</b> – Creating a search experience.</li>
+    </ul>
+
+- <code>05-designe</code>
+  - <strong>Flutter: Designs:</strong>
+    <ul>
+      <li><b>Basic</b> – Recommended by Flutter.</li>
+      <li><b>Intermediate</b> – With PageViews and images.</li>
+      <li><b>Advanced</b> – With blur, background grids, and more.</li>
+    </ul>
+
 ---
 
 ## 🔗 Useful Links
