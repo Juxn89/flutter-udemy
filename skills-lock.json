@@ -1,0 +1,35 @@
+{
+  "version": 1,
+  "skills": {
+    "flutter-animating-apps": {
+      "source": "flutter/skills",
+      "sourceType": "github",
+      "computedHash": "217700e356dae9e3624a54543aa366aca3871aa3c0368856156715e211aeac4c"
+    },
+    "flutter-architecting-apps": {
+      "source": "flutter/skills",
+      "sourceType": "github",
+      "computedHash": "8d4c005971a6dc098557a5511cfd683de25aa88cb595c5bc8b306168c35bc7ab"
+    },
+    "flutter-handling-concurrency": {
+      "source": "flutter/skills",
+      "sourceType": "github",
+      "computedHash": "3c82829ba0411e6069e33ce72dac677901bdac1bcd5cde3dd35845d51e5ef736"
+    },
+    "flutter-handling-http-and-json": {
+      "source": "flutter/skills",
+      "sourceType": "github",
+      "computedHash": "9c57a05e71557b4f8cd3ac9e72b8c65f20e8deaf5c1163a1852dfe4fd654e5c0"
+    },
+    "flutter-reducing-app-size": {
+      "source": "flutter/skills",
+      "sourceType": "github",
+      "computedHash": "9c5cd2040b08348d0190f708d2908f0304d50a464127cc9abf54c19b34453963"
+    },
+    "flutter-ui": {
+      "source": "dhruvanbhalara/skills",
+      "sourceType": "github",
+      "computedHash": "a2b431e3c556cde2cad3693241fb82fed170d64a51b0bc5fce59924d83ea2726"
+    }
+  }
+}
