@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_barcode_scanner_plus/flutter_barcode_scanner_plus.dart';
 import 'package:provider/provider.dart';
+import 'package:qr_reader/models/scan_model.dart';
 import 'package:qr_reader/pages/pages.dart';
+import 'package:qr_reader/providers/db_provider.dart';
 import 'package:qr_reader/providers/ui_provider.dart';
 import 'package:qr_reader/widgets/widgets.dart';
 
@@ -35,6 +38,9 @@ class _HomePageBody extends StatelessWidget {
 	Widget build(BuildContext context) {
 		final uiProvider = Provider.of<UiProvider>(context);
 		final currentTabSelected = uiProvider.selectedMenuOption;
+
+		final tempNewScan = new ScanModel(value: 'https://juangomezb.com');
+		DBProvider.db.newScan(tempNewScan);
 
 		switch(currentTabSelected) {
 			case 0:
