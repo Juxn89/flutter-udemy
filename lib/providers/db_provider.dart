@@ -59,4 +59,51 @@ class DBProvider {
 
 		return res;
 	}
+
+	Future<ScanModel?> getScanById(int id) async {
+		final db = await database;
+		final response = await db.query('Scans', where: 'id = ?', whereArgs: [id]);
+		return response.isNotEmpty
+			? ScanModel.fromJson(response.first)
+			: null;
+	}
+
+	Future<List<ScanModel>> getScans() async {
+		final db = await database;
+		final response = await db.query('Scans');
+		return response.isNotEmpty
+			? response.map( (scan) => ScanModel.fromJson(scan) ).toList()
+			: [];
+	}
+
+	Future<List<ScanModel>> getScansByType(String type) async {
+		final db = await database;
+		final response = await db.rawQuery('''
+			SELECT * FROM Scans WHERE type = '$type'
+		''');
+		return response.isNotEmpty
+			? response.map( (scan) => ScanModel.fromJson(scan) ).toList()
+			: [];
+	}
+
+	Future<int> updateScan(ScanModel newScan) async {
+		final db = await database;
+		final response = await db.update('Scans', newScan.toJson(), where: 'id = ?', whereArgs: [newScan.id]);
+		return response;
+	}
+
+	Future<int> deleteScan(int id) async {
+		final db = await database;
+		final response = await db.delete('Scans', where: 'id = ?', whereArgs: [id]);
+		return response;
+	}
+
+	Future<int> deleteScanDatabase() async {
+		final db = await database;
+		// final repsonse = await db.rawDelete('''
+		// 	DELETE FROMM Scans
+		// ''');
+		final response = await db.delete('Scans');
+		return response;
+	}
 }

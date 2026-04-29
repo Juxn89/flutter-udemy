@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:qr_reader/models/scan_model.dart';
 import 'package:qr_reader/pages/pages.dart';
 import 'package:qr_reader/providers/db_provider.dart';
+import 'package:qr_reader/providers/scans_list_provider.dart';
 import 'package:qr_reader/providers/ui_provider.dart';
 import 'package:qr_reader/widgets/widgets.dart';
 
@@ -38,14 +39,14 @@ class _HomePageBody extends StatelessWidget {
 	Widget build(BuildContext context) {
 		final uiProvider = Provider.of<UiProvider>(context);
 		final currentTabSelected = uiProvider.selectedMenuOption;
-
-		final tempNewScan = new ScanModel(value: 'https://juangomezb.com');
-		DBProvider.db.newScan(tempNewScan);
+		final scanListProvider = Provider.of<ScanListProvider>(context, listen: false);
 
 		switch(currentTabSelected) {
 			case 0:
+				scanListProvider.loadScansByType('http');
 				return MapsHistory();
 			case 1:
+				scanListProvider.loadScansByType('geo');
 				return Directions();
 			default:
 				return MapsHistory();
