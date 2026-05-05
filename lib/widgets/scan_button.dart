@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_barcode_scanner_plus/flutter_barcode_scanner_plus.dart';
 import 'package:provider/provider.dart';
 import 'package:qr_reader/providers/scans_list_provider.dart';
+import 'package:qr_reader/utils/utils.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ScanButton extends StatelessWidget {
   const ScanButton({super.key});
@@ -17,12 +18,16 @@ class ScanButton extends StatelessWidget {
 					final barcodeScanRes = 'https://www.juangomezb.com/';
 					final scanListProvider = Provider.of<ScanListProvider>(context, listen: false);
 
-					scanListProvider.newScan(barcodeScanRes);
-					scanListProvider.newScan(barcodeScanRes);
-					scanListProvider.newScan(barcodeScanRes);
-					scanListProvider.newScan('geo:26.90.90.98');
-					scanListProvider.newScan('geo:16.80.80.88');
-					scanListProvider.newScan('geo:15.89.89.87');
+					if(barcodeScanRes == '-1') return;
+
+					scanListProvider.newScan('https://www.juangomezb.com/');
+					scanListProvider.newScan('https://www.as.com/');
+					scanListProvider.newScan('https://www.rockstargames.com/');
+					scanListProvider.newScan('geo:40.4530196,-3.6909497');
+					scanListProvider.newScan('geo:40.4397462,-3.4623751');
+					final newScan = await scanListProvider.newScan('geo:40.7258964,-73.9960802');
+
+					launchScanUrl(context, newScan);
 			},
 		);
   }

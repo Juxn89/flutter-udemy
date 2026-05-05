@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qr_reader/models/scan_model.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 
 Future<void> launchScanUrl(BuildContext context, ScanModel scan) async {
 	final String url = scan.value;
@@ -13,6 +12,6 @@ Future<void> launchScanUrl(BuildContext context, ScanModel scan) async {
 		}
 	}
 	else {
-		print('geo!');	
+		Navigator.pushNamed(context, 'map', arguments: scan);
 	}
 }
