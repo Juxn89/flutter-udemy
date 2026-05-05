@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_barcode_scanner_plus/flutter_barcode_scanner_plus.dart';
 import 'package:provider/provider.dart';
-import 'package:qr_reader/models/scan_model.dart';
 import 'package:qr_reader/pages/pages.dart';
-import 'package:qr_reader/providers/db_provider.dart';
-import 'package:qr_reader/providers/scans_list_provider.dart';
-import 'package:qr_reader/providers/ui_provider.dart';
+import 'package:qr_reader/providers/providers.dart';
 import 'package:qr_reader/widgets/widgets.dart';
 
 class HomePage extends StatelessWidget {
@@ -20,7 +16,10 @@ class HomePage extends StatelessWidget {
 				elevation: 0,
 				actions: [
 					IconButton(
-						onPressed: (){}, 
+						onPressed: (){
+							Provider.of<ScanListProvider>(context, listen: false)
+								.deleteAll();
+						}, 
 						icon: Icon(Icons.delete_forever))
 				],
 			),
@@ -33,8 +32,6 @@ class HomePage extends StatelessWidget {
 }
 
 class _HomePageBody extends StatelessWidget {
-	const _HomePageBody({super.key});
-
 	@override
 	Widget build(BuildContext context) {
 		final uiProvider = Provider.of<UiProvider>(context);

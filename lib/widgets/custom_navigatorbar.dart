@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:qr_reader/providers/ui_provider.dart';
+
+import '../providers/providers.dart';
 
 class CustomNavigationBart extends StatelessWidget {
   const CustomNavigationBart({super.key});

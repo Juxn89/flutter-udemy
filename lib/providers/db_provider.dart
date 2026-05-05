@@ -1,6 +1,6 @@
 import 'dart:io';
-import 'package:flutter_barcode_scanner_plus/flutter_barcode_scanner_plus.dart';
 import 'package:path/path.dart';
+import 'package:flutter_barcode_scanner_plus/flutter_barcode_scanner_plus.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:qr_reader/models/scan_model.dart';
 import 'package:sqflite/sqflite.dart';
