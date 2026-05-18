@@ -30,6 +30,12 @@
       "source": "dhruvanbhalara/skills",
       "sourceType": "github",
       "computedHash": "a2b431e3c556cde2cad3693241fb82fed170d64a51b0bc5fce59924d83ea2726"
+    },
+    "readme-blueprint-generator": {
+      "source": "github/awesome-copilot",
+      "sourceType": "github",
+      "skillPath": "skills/readme-blueprint-generator/SKILL.md",
+      "computedHash": "e2c7dabf2e455794260f1516e2ceda6a82dc92a409578cc184fcb0f45bddca54"
     }
   }
 }
